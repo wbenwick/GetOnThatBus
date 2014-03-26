@@ -70,6 +70,7 @@
             MKPointAnnotation  *annotation = [MKPointAnnotation new];
             annotation.coordinate = CLLocationCoordinate2DMake([busStop[@"latitude"] doubleValue],[busStop[@"longitude"] doubleValue]);
             annotation.title = busStop[@"cta_stop_name"];
+            annotation.subtitle = busStop[@"routes"];
             
             [mapView addAnnotation:annotation];
         }

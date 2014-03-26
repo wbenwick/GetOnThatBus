@@ -7,6 +7,7 @@
 //
 
 #import "FLXViewController.h"
+#import "FLXBusStopViewController.h"
 #import <MapKit/MapKit.h>
 
 @interface FLXViewController () <MKMapViewDelegate> {
@@ -116,7 +117,13 @@
 -(void)mapView:(MKMapView *)myMapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     NSLog(@"Tapped");
-    
+//    FLXBusStopViewController *busStopViewController = [[FLXBusStopViewController alloc] init];
+//    [self presentViewController:busStopViewController animated:YES completion:nil];
+    [self performSegueWithIdentifier:@"BusStop" sender:nil];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"Segue");
 }
 
 

@@ -22,6 +22,7 @@
 		013614FB18E26412007B708A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 013614F918E26412007B708A /* InfoPlist.strings */; };
 		013614FD18E26412007B708A /* GetOnThatBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 013614FC18E26412007B708A /* GetOnThatBusTests.m */; };
 		0136150718E26427007B708A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0136150618E26427007B708A /* MapKit.framework */; };
+		C3928DD318E30E87007693BF /* FLXBusStopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3928DD218E30E87007693BF /* FLXBusStopViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		013614FA18E26412007B708A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		013614FC18E26412007B708A /* GetOnThatBusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetOnThatBusTests.m; sourceTree = "<group>"; };
 		0136150618E26427007B708A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C3928DD118E30E87007693BF /* FLXBusStopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXBusStopViewController.h; sourceTree = "<group>"; };
+		C3928DD218E30E87007693BF /* FLXBusStopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXBusStopViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				013614E018E26412007B708A /* FLXAppDelegate.h */,
 				013614E118E26412007B708A /* FLXAppDelegate.m */,
 				013614E318E26412007B708A /* Main.storyboard */,
+				C3928DD118E30E87007693BF /* FLXBusStopViewController.h */,
+				C3928DD218E30E87007693BF /* FLXBusStopViewController.m */,
 				013614E618E26412007B708A /* FLXViewController.h */,
 				013614E718E26412007B708A /* FLXViewController.m */,
 				013614E918E26412007B708A /* Images.xcassets */,
@@ -256,6 +261,7 @@
 			files = (
 				013614DE18E26412007B708A /* main.m in Sources */,
 				013614E218E26412007B708A /* FLXAppDelegate.m in Sources */,
+				C3928DD318E30E87007693BF /* FLXBusStopViewController.m in Sources */,
 				013614E818E26412007B708A /* FLXViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +467,7 @@
 				0136150218E26412007B708A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0136150318E26412007B708A /* Build configuration list for PBXNativeTarget "GetOnThatBusTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +476,7 @@
 				0136150518E26412007B708A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

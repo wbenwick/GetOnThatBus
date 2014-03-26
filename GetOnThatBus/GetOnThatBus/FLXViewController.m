@@ -13,6 +13,7 @@
     
     __weak IBOutlet MKMapView *mapView;
     __weak IBOutlet UIView *myView;
+    __weak NSDictionary *myBusStops;
 }
 
 @end
@@ -23,7 +24,7 @@
 {
     [super viewDidLoad];
 
-    CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake(32.13121, -81.17391);
+    CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake(41.5100, -87.3900);
     
     MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(1.0, 1.0);
     
@@ -31,34 +32,50 @@
     
     mapView.region = region;
     
-    MKPointAnnotation  *annotation = [MKPointAnnotation new];
+//    MKPointAnnotation  *annotation = [MKPointAnnotation new];
     
-    annotation.coordinate = centerCoordinate;
-    annotation.title = @"My spot";
+//    annotation.coordinate = centerCoordinate;
+//    annotation.title = @"My spot";
     
-    mapView.layer.shadowColor = [[UIColor blackColor] CGColor];
-    mapView.layer.shadowOffset = CGSizeMake(10.0f, 10.0f);
-    mapView.layer.shadowOpacity = 1.0f;
-    mapView.layer.shadowRadius = 10.0f;
+//    [mapView showsUserLocation];
     
-    [mapView showsUserLocation];
+//    [mapView addAnnotation:annotation];
     
-    [mapView addAnnotation:annotation];
+//    CLGeocoder* geocoder = [CLGeocoder new];
+//    
+//    
+//    [geocoder geocodeAddressString:@"Chicago" completionHandler:^(NSArray *placemarks, NSError *error)
+//        {
+//        
+//            for (CLPlacemark* place in placemarks) {
+//                MKPointAnnotation* annotation = [MKPointAnnotation new];
+//                annotation.coordinate = place.location.coordinate;
+//                [mapView addAnnotation:annotation];
+//            }
+//        }
+//     
+//     ];
     
-    CLGeocoder* geocoder = [CLGeocoder new];
+    NSURL* url = [NSURL URLWithString:@"https://s3.amazonaws.com/mobile-makers-lib/bus.json"];
+    NSURLRequest* request = [NSURLRequest requestWithURL:url];
     
-    
-    [geocoder geocodeAddressString:@"Everbank Field" completionHandler:^(NSArray *placemarks, NSError *error)
-        {
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        NSError* error;
+        NSDictionary* myResults;
+        myResults = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        myBusStops = myResults[@"row"];
         
-            for (CLPlacemark* place in placemarks) {
-                MKPointAnnotation* annotation = [MKPointAnnotation new];
-                annotation.coordinate = place.location.coordinate;
-                [mapView addAnnotation:annotation];
-            }
+        for (NSDictionary *busStop in myBusStops) {
+            NSLog(@"Lat: %@ %@",busStop[@"latitude"], busStop[@"longitude"]);
+            MKPointAnnotation  *annotation = [MKPointAnnotation new];
+            annotation.coordinate = CLLocationCoordinate2DMake([busStop[@"latitude"] doubleValue],[busStop[@"longitude"] doubleValue]);
+//            annotation.title = @"My spot";
+            
+            [mapView addAnnotation:annotation];
         }
-     
-     ];
+        
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning

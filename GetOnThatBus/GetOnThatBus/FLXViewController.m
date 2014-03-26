@@ -24,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES];
 
     CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake(41.88152, -87.666695);
     
@@ -78,6 +79,12 @@
         
     }];
     
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning

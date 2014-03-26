@@ -18,7 +18,11 @@
 {
     [super viewDidLoad];
     NSLog(@"Bus Stop Loaded");
-    
+   
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

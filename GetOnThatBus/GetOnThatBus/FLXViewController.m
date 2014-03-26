@@ -24,9 +24,9 @@
 {
     [super viewDidLoad];
 
-    CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake(41.5100, -87.3900);
+    CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake(41.88152, -87.666695);
     
-    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(1.0, 1.0);
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.29, 0.29);
     
     MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
     
@@ -69,7 +69,7 @@
             NSLog(@"Lat: %@ %@",busStop[@"latitude"], busStop[@"longitude"]);
             MKPointAnnotation  *annotation = [MKPointAnnotation new];
             annotation.coordinate = CLLocationCoordinate2DMake([busStop[@"latitude"] doubleValue],[busStop[@"longitude"] doubleValue]);
-//            annotation.title = @"My spot";
+            annotation.title = busStop[@"cta_stop_name"];
             
             [mapView addAnnotation:annotation];
         }

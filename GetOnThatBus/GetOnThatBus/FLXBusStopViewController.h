@@ -10,4 +10,7 @@
 
 @interface FLXBusStopViewController : UIViewController
 
+@property NSString * busStopName;
+@property NSString * busRoutes;
+
 @end

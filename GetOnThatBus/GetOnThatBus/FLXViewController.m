@@ -79,6 +79,8 @@
         
     }];
     
+    [myBusStops ob]
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -126,11 +128,16 @@
     NSLog(@"Tapped");
 //    FLXBusStopViewController *busStopViewController = [[FLXBusStopViewController alloc] init];
 //    [self presentViewController:busStopViewController animated:YES completion:nil];
-    [self performSegueWithIdentifier:@"BusStop" sender:nil];
+    [self performSegueWithIdentifier:@"BusStop" sender:control];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIControl*)sender {
     NSLog(@"Segue");
+    FLXBusStopViewController *busStopViewController = [segue destinationViewController];
+    busStopViewController.busStopName = @"Test";
+    
+// NEED TO SUBCLASS MKPOINTANNOTATION ADD CUSTOM DICTIONARY FIELD
+
 }
 
 
